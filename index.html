@@ -303,6 +303,16 @@
   .foodcard h4 { margin: 8px 0 6px; font-size: 19px; font-weight: 700; }
   .foodcard p { margin: 0; color: var(--ink-soft); font-size: 14px; }
   .foodcard .addr { margin-top: 12px; font-size: 12.5px; color: var(--ink-faint); border-top: 1px solid var(--line-soft); padding-top: 10px; }
+  .foodcard .rating { display: inline-flex; align-items: baseline; gap: 6px; margin-top: 14px; font-size: 15px; font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .foodcard .rating .star { font-size: 13px; }
+  .foodcard .rating .src { font-size: 10.5px; font-weight: 600; color: var(--ink-faint); letter-spacing: .02em; }
+  .foodcard .cardfoot { margin-top: 11px; border-top: 1px solid var(--line-soft); padding-top: 11px; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .foodcard .cardfoot .af { font-size: 12.3px; color: var(--ink-faint); }
+  .kakao-link { flex: none; display: inline-flex; align-items: center; gap: 5px; background: #FEE500; color: #2A2600; text-decoration: none; font-weight: 800; font-size: 11.5px; padding: 6px 12px; border-radius: 999px; letter-spacing: .01em; transition: filter .2s, transform .2s; }
+  .kakao-link:hover { filter: brightness(.93); transform: translateY(-1px); }
+  .kakao-link:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+  .ratenote { margin-top: 14px; font-size: 12.8px; color: var(--ink-faint); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .ratenote .pill { background: #FEE500; color: #2A2600; font-weight: 800; font-size: 10.5px; padding: 3px 8px; border-radius: 999px; }
 
   /* Info columns */
   .infogrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 40px; }
@@ -847,17 +857,18 @@
     <p class="eyebrow reveal">Eat List</p>
     <h2 class="sec reveal">강릉 먹방 지도</h2>
     <p class="lead reveal">이번 여행에서 챙긴 실제 맛집들. 웨이팅이 있는 곳이 많으니, 식사 시간보다 조금 이르게 움직이는 걸 추천합니다.</p>
+    <div class="ratenote reveal"><span class="pill">카카오맵 평점</span> 버튼을 누르면 각 식당의 <b>실시간 카카오맵 별점·후기</b>를 바로 볼 수 있어요. ★ 숫자 배지는 다이닝코드 공개 평점(2026.07 기준)이며, 확인 안 된 곳은 비워 뒀습니다.</div>
 
     <div class="foodgrid">
-      <div class="foodcard reveal"><div class="cat">순두부</div><h4>동화가든</h4><p>얼큰한 국물의 짬뽕순두부. 반찬 리필 인심도 넉넉.</p><div class="addr">초당순두부마을 · 033-652-9885</div></div>
-      <div class="foodcard reveal"><div class="cat">순두부</div><h4>초당할머니순두부</h4><p>부드러운 순두부백반과 얼큰째복순두부가 간판.</p><div class="addr">초당순두부마을 · 033-652-2058</div></div>
-      <div class="foodcard reveal"><div class="cat">디저트</div><h4>순두부젤라또</h4><p>고소한 순두부 젤라또, 초당의 인기 디저트.</p><div class="addr">초당순두부길 95-5 · 09:20–19:30</div></div>
-      <div class="foodcard reveal"><div class="cat">커피</div><h4>보헤미안 박이추커피</h4><p>1세대 바리스타의 핸드드립. 안목 바다 앞.</p><div class="addr">안목해변 커피거리</div></div>
-      <div class="foodcard reveal"><div class="cat">커피</div><h4>테라로사</h4><p>강릉을 커피의 도시로 만든 로스터리.</p><div class="addr">강릉 대표 카페</div></div>
-      <div class="foodcard reveal"><div class="cat">꼬막·회</div><h4>엄지네포장마차</h4><p>줄 서서 먹는 꼬막비빔밥과 육사시미.</p><div class="addr">강릉시 포남동</div></div>
-      <div class="foodcard reveal"><div class="cat">짬뽕</div><h4>교동반점</h4><p>강릉 짬뽕의 대명사. 월요일 휴무.</p><div class="addr">강릉대로 205 · 10:00–18:00</div></div>
-      <div class="foodcard reveal"><div class="cat">시장</div><h4>강릉중앙시장</h4><p>닭강정·꽈배기·오징어순대, 걸어 다니며 먹방.</p><div class="addr">강릉 시내 전통시장</div></div>
-      <div class="foodcard reveal"><div class="cat">회·해산물</div><h4>주문진 수산시장</h4><p>갓 잡은 오징어회·물회. 북쪽 30~40분(옵션).</p><div class="addr">주문진항 회센터</div></div>
+      <div class="foodcard reveal"><div class="cat">순두부</div><h4>동화가든</h4><p>얼큰한 국물의 짬뽕순두부. 반찬 리필 인심도 넉넉.</p><div class="rating"><span class="star">★</span>4.5<span class="src">다이닝코드</span></div><div class="cardfoot"><span class="af">초당순두부마을 · 033-652-9885</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=강릉 동화가든 초당순두부">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">순두부</div><h4>초당할머니순두부</h4><p>부드러운 순두부백반과 얼큰째복순두부가 간판.</p><div class="cardfoot"><span class="af">초당순두부마을 · 033-652-2058</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=강릉 초당할머니순두부">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">디저트</div><h4>순두부젤라또</h4><p>고소한 순두부 젤라또, 초당의 인기 디저트.</p><div class="cardfoot"><span class="af">초당순두부길 95-5 · 09:20–19:30</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=강릉 순두부젤라또 초당">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">커피</div><h4>보헤미안 박이추커피</h4><p>1세대 바리스타의 핸드드립. 안목 바다 앞.</p><div class="rating"><span class="star">★</span>4.1<span class="src">다이닝코드</span></div><div class="cardfoot"><span class="af">안목해변 커피거리</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=보헤미안 박이추커피 본점">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">커피</div><h4>테라로사</h4><p>강릉을 커피의 도시로 만든 로스터리.</p><div class="cardfoot"><span class="af">강릉 대표 카페</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=테라로사 커피 강릉">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">꼬막·회</div><h4>엄지네포장마차</h4><p>줄 서서 먹는 꼬막비빔밥과 육사시미.</p><div class="rating"><span class="star">★</span>4.5<span class="src">다이닝코드</span></div><div class="cardfoot"><span class="af">강릉시 포남동</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=엄지네포장마차 본점 강릉">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">짬뽕</div><h4>교동반점</h4><p>강릉 짬뽕의 대명사. 월요일 휴무.</p><div class="cardfoot"><span class="af">강릉대로 205 · 10:00–18:00</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=원조강릉교동반점 본점">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">시장</div><h4>강릉중앙시장</h4><p>닭강정·꽈배기·오징어순대, 걸어 다니며 먹방.</p><div class="rating"><span class="star">★</span>4.8<span class="src">다이닝코드 · 중앙닭강정</span></div><div class="cardfoot"><span class="af">강릉 시내 전통시장</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=강릉중앙시장">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">회·해산물</div><h4>주문진 수산시장</h4><p>갓 잡은 오징어회·물회. 북쪽 30~40분(옵션).</p><div class="rating"><span class="star">★</span>4.5<span class="src">다이닝코드 · 해광횟집</span></div><div class="cardfoot"><span class="af">주문진항 회센터</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=주문진수산시장">카카오맵 평점</a></div></div>
     </div>
   </div>
 </section>

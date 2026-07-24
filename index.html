@@ -1,5 +1,7 @@
 <title>강릉, 우리 둘의 사흘 — 2박 3일 여행 플랜</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
 
 <style>
   :root {
@@ -23,8 +25,8 @@
     --shadow: 0 1px 2px rgba(23,37,44,.05), 0 12px 32px -18px rgba(23,37,44,.28);
     --shadow-lg: 0 30px 70px -40px rgba(23,37,44,.55);
 
-    --font-body: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, -apple-system, sans-serif;
-    --font-display: "Nanum Myeongjo", "AppleMyungjo", "Apple SD Gothic Neo", "Noto Serif KR", Georgia, serif;
+    --font-body: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", -apple-system, BlinkMacSystemFont, system-ui, "Noto Sans KR", sans-serif;
+    --font-display: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", -apple-system, BlinkMacSystemFont, system-ui, "Noto Sans KR", sans-serif;
     --maxw: 1080px;
   }
 
@@ -109,11 +111,11 @@
   }
   .hero h1 {
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 800;
     font-size: clamp(44px, 9vw, 96px);
-    line-height: 1.02;
+    line-height: 1.03;
     margin: 0;
-    letter-spacing: -.01em;
+    letter-spacing: -.035em;
     text-wrap: balance;
     text-shadow: 0 2px 40px rgba(0,0,0,.35);
   }
@@ -192,8 +194,8 @@
   }
   .eyebrow::before { content: ""; width: 26px; height: 1.5px; background: var(--accent); display: inline-block; }
   h2.sec {
-    font-family: var(--font-display); font-weight: 700;
-    font-size: clamp(28px, 4.4vw, 42px); line-height: 1.14; margin: 0 0 14px; letter-spacing: -.01em; text-wrap: balance;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(28px, 4.4vw, 42px); line-height: 1.14; margin: 0 0 14px; letter-spacing: -.025em; text-wrap: balance;
   }
   .lead { color: var(--ink-soft); font-size: 16.5px; max-width: 62ch; margin: 0; }
 
@@ -295,6 +297,23 @@
   .packcard:nth-child(3n) h3 .pdot { background: var(--gold); }
   .packcard .checklist li { font-size: 14px; }
   .packnote { margin-top: 22px; font-size: 13px; color: var(--ink-faint); }
+  /* interactive checklist */
+  #pack .checklist li { cursor: pointer; user-select: none; border-radius: 9px; padding: 3px 5px; margin: -3px -5px; transition: background .15s; }
+  #pack .checklist li:hover { background: var(--surface-2); }
+  #pack .checklist li .mk { background: var(--surface); border: 1.7px solid var(--line); color: transparent; transition: background .18s, border-color .18s, color .18s, transform .18s; }
+  #pack .checklist li.done .mk { background: var(--sea); border-color: var(--sea); color: #fff; transform: scale(1.04); }
+  #pack .checklist li.done > span:last-child { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--ink-faint) 70%, transparent); color: var(--ink-faint); }
+  #pack .checklist li:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+  .pcount { margin-left: auto; font-size: 12px; font-weight: 700; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .packprogress { margin-top: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow); }
+  .packprogress .ppinfo { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 11px; }
+  #packcount { font-size: 14.5px; font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; }
+  #packreset { background: none; border: 1px solid var(--line); color: var(--ink-soft); font-size: 12px; font-weight: 600; padding: 6px 13px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  #packreset:hover { background: var(--surface-2); color: var(--ink); border-color: var(--ink-faint); }
+  #packreset:focus-visible { outline: 2px solid var(--sea); outline-offset: 2px; }
+  .pptrack { height: 9px; background: var(--surface-2); border-radius: 999px; overflow: hidden; border: 1px solid var(--line-soft); }
+  .ppbar { height: 100%; width: 0; background: linear-gradient(90deg, var(--sea), var(--gold)); border-radius: 999px; transition: width .45s cubic-bezier(.2,.8,.2,1); }
+  .pphint { margin: 12px 0 0; font-size: 12.3px; color: var(--ink-faint); }
   .foodcard .kmeta { margin-top: 12px; font-size: 12.5px; color: var(--ink-faint); border-top: 1px solid var(--line-soft); padding-top: 10px; display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .foodgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
   .foodcard {
@@ -909,7 +928,13 @@
   <div class="wrap">
     <p class="eyebrow reveal">Packing List</p>
     <h2 class="sec reveal">짐 싸기 · 준비물 체크리스트</h2>
-    <p class="lead reveal">2박 3일, 자차(EV3), 한여름 바다 기준으로 꼼꼼하게 정리했어요. 카테고리별로 훑으며 하나씩 담으면 빠뜨릴 일이 없습니다.</p>
+    <p class="lead reveal">2박 3일, 자차(EV3), 한여름 바다 기준으로 꼼꼼하게 정리했어요. <b>항목을 눌러 체크</b>하면 챙긴 것으로 표시돼요.</p>
+
+    <div class="packprogress reveal">
+      <div class="ppinfo"><span id="packcount">0 / 0 챙김</span><button id="packreset" type="button">전체 초기화</button></div>
+      <div class="pptrack"><div id="packbar" class="ppbar"></div></div>
+      <p class="pphint">체크 상태는 <b>이 기기(브라우저)에 자동 저장</b>돼요 — 창을 닫았다 다시 열어도 그대로 유지됩니다.</p>
+    </div>
 
     <div class="packgrid">
       <div class="packcard reveal"><h3><span class="pdot"></span>서류 · 전자기기</h3><ul class="checklist">
@@ -1189,5 +1214,81 @@
   function start() { resize(); t0 = 0; if (raf) cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); }
   window.addEventListener("resize", function () { resize(); });
   start();
+})();
+</script>
+
+<script>
+/* ---------- interactive packing checklist (persisted per browser) ---------- */
+(function () {
+  var KEY = "gn-pack-checked-v1";
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { store = {}; }
+
+  var items = Array.prototype.slice.call(document.querySelectorAll("#pack .checklist li"));
+  var cards = Array.prototype.slice.call(document.querySelectorAll("#pack .packcard"));
+  if (!items.length) return;
+
+  // per-card count badge
+  cards.forEach(function (card) {
+    var h = card.querySelector("h3");
+    if (h && !h.querySelector(".pcount")) {
+      var s = document.createElement("span");
+      s.className = "pcount";
+      h.appendChild(s);
+    }
+  });
+
+  function keyOf(li) { return (li.textContent || "").replace(/\s+/g, " ").trim(); }
+
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {}
+  }
+
+  function update() {
+    var done = 0;
+    items.forEach(function (li) { if (li.classList.contains("done")) done++; });
+    var bar = document.getElementById("packbar");
+    var cnt = document.getElementById("packcount");
+    var pct = items.length ? Math.round((done / items.length) * 100) : 0;
+    if (bar) bar.style.width = pct + "%";
+    if (cnt) cnt.textContent = done + " / " + items.length + " 챙김 (" + pct + "%)";
+    cards.forEach(function (card) {
+      var lis = card.querySelectorAll(".checklist li");
+      var d = 0;
+      lis.forEach(function (li) { if (li.classList.contains("done")) d++; });
+      var badge = card.querySelector(".pcount");
+      if (badge) badge.textContent = d + "/" + lis.length;
+    });
+  }
+
+  items.forEach(function (li) {
+    li.setAttribute("role", "checkbox");
+    li.setAttribute("tabindex", "0");
+    var k = keyOf(li);
+    if (store[k]) li.classList.add("done");
+    li.setAttribute("aria-checked", li.classList.contains("done") ? "true" : "false");
+    function toggle() {
+      var on = !li.classList.contains("done");
+      li.classList.toggle("done", on);
+      li.setAttribute("aria-checked", on ? "true" : "false");
+      if (on) store[k] = 1; else delete store[k];
+      save();
+      update();
+    }
+    li.addEventListener("click", toggle);
+    li.addEventListener("keydown", function (e) {
+      if (e.key === " " || e.key === "Enter") { e.preventDefault(); toggle(); }
+    });
+  });
+
+  var reset = document.getElementById("packreset");
+  if (reset) reset.addEventListener("click", function () {
+    items.forEach(function (li) { li.classList.remove("done"); li.setAttribute("aria-checked", "false"); });
+    store = {};
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    update();
+  });
+
+  update();
 })();
 </script>

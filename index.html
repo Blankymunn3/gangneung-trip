@@ -1,0 +1,1094 @@
+<title>강릉, 우리 둘의 사흘 — 2박 3일 여행 플랜</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+  :root {
+    /* light (default) */
+    --bg: #FBF6EF;
+    --bg-2: #F3EADD;
+    --surface: #FFFFFF;
+    --surface-2: #F6EEE2;
+    --ink: #17252C;
+    --ink-soft: #5A6A70;
+    --ink-faint: #8A9599;
+    --line: #E7DBC9;
+    --line-soft: #F0E7D8;
+    --accent: #E1552F;      /* coral sunrise */
+    --accent-soft: #FBE3D8;
+    --sea: #2E7E82;         /* teal */
+    --sea-soft: #DBEBEA;
+    --gold: #C9871E;
+    --night: #0C1922;
+
+    --shadow: 0 1px 2px rgba(23,37,44,.05), 0 12px 32px -18px rgba(23,37,44,.28);
+    --shadow-lg: 0 30px 70px -40px rgba(23,37,44,.55);
+
+    --font-body: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, -apple-system, sans-serif;
+    --font-display: "Nanum Myeongjo", "AppleMyungjo", "Apple SD Gothic Neo", "Noto Serif KR", Georgia, serif;
+    --maxw: 1080px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0C1922;
+      --bg-2: #0A151D;
+      --surface: #12242F;
+      --surface-2: #172F3B;
+      --ink: #ECE4D6;
+      --ink-soft: #A6B4B9;
+      --ink-faint: #74868D;
+      --line: #234050;
+      --line-soft: #1A303C;
+      --accent: #FF7A54;
+      --accent-soft: #2C2119;
+      --sea: #5BC0BE;
+      --sea-soft: #14312F;
+      --gold: #EDB24C;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -22px rgba(0,0,0,.7);
+      --shadow-lg: 0 40px 90px -50px rgba(0,0,0,.85);
+    }
+  }
+  /* explicit theme toggles win over media query in both directions */
+  :root[data-theme="light"] {
+    --bg: #FBF6EF; --bg-2: #F3EADD; --surface: #FFFFFF; --surface-2: #F6EEE2;
+    --ink: #17252C; --ink-soft: #5A6A70; --ink-faint: #8A9599; --line: #E7DBC9; --line-soft: #F0E7D8;
+    --accent: #E1552F; --accent-soft: #FBE3D8; --sea: #2E7E82; --sea-soft: #DBEBEA; --gold: #C9871E;
+    --shadow: 0 1px 2px rgba(23,37,44,.05), 0 12px 32px -18px rgba(23,37,44,.28);
+    --shadow-lg: 0 30px 70px -40px rgba(23,37,44,.55);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0C1922; --bg-2: #0A151D; --surface: #12242F; --surface-2: #172F3B;
+    --ink: #ECE4D6; --ink-soft: #A6B4B9; --ink-faint: #74868D; --line: #234050; --line-soft: #1A303C;
+    --accent: #FF7A54; --accent-soft: #2C2119; --sea: #5BC0BE; --sea-soft: #14312F; --gold: #EDB24C;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -22px rgba(0,0,0,.7);
+    --shadow-lg: 0 40px 90px -50px rgba(0,0,0,.85);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------------- HERO (committed dark: night → dawn) ---------------- */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #F4ECDE;
+    overflow: hidden;
+    background: #071019;
+  }
+  #sky { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .hero::after { /* legibility scrim */
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(6,13,20,.72) 0%, rgba(6,13,20,.28) 34%, rgba(6,13,20,0) 62%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; padding-bottom: 12svh; }
+  .hero-eyebrow {
+    font-size: 12.5px; letter-spacing: .42em; text-transform: uppercase;
+    color: #FFC9A6; font-weight: 600; margin: 0 0 18px;
+    opacity: 0; transform: translateY(14px); animation: rise .9s .2s ease forwards;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(44px, 9vw, 96px);
+    line-height: 1.02;
+    margin: 0;
+    letter-spacing: -.01em;
+    text-wrap: balance;
+    text-shadow: 0 2px 40px rgba(0,0,0,.35);
+  }
+  .hero h1 .l { display: block; opacity: 0; transform: translateY(26px); animation: rise 1s ease forwards; }
+  .hero h1 .l:nth-child(1) { animation-delay: .34s; }
+  .hero h1 .l:nth-child(2) { animation-delay: .5s; color: #FFB489; }
+  .hero-sub {
+    margin: 26px 0 0; max-width: 40ch;
+    font-size: clamp(15px, 2.1vw, 18.5px);
+    color: #E7DCcf; opacity: 0; transform: translateY(16px);
+    animation: rise 1s .74s ease forwards;
+    color: #EADFD1;
+  }
+  .hero-meta {
+    margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px;
+    opacity: 0; animation: fade 1.1s .96s ease forwards;
+  }
+  .hero-meta span {
+    font-size: 13px; letter-spacing: .01em;
+    padding: 8px 14px; border-radius: 999px;
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.18);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-variant-numeric: tabular-nums;
+  }
+  .scrollcue {
+    position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+    z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase; color: #FFD9BE;
+    opacity: 0; animation: fade 1s 1.5s ease forwards;
+  }
+  .scrollcue .dot { width: 4px; height: 4px; border-radius: 50%; background: #FFD9BE; animation: fall 1.6s ease-in-out infinite; }
+
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+  @keyframes fade { to { opacity: 1; } }
+  @keyframes fall { 0% { transform: translateY(-3px); opacity: .2; } 50% { transform: translateY(6px); opacity: 1; } 100% { transform: translateY(-3px); opacity: .2; } }
+
+  /* ---------------- Theme toggle ---------------- */
+  .toggle {
+    position: fixed; top: 16px; right: 16px; z-index: 60;
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(10,20,28,.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    color: #fff; cursor: pointer; font-size: 17px; line-height: 1;
+    display: grid; place-items: center; transition: transform .3s, background .3s;
+  }
+  .toggle:hover { transform: rotate(18deg) scale(1.06); }
+  .toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---------------- Sticky day nav ---------------- */
+  .daynav {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .daynav .wrap { display: flex; align-items: center; gap: 6px; height: 60px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-right: 60px; }
+  .daynav .wrap::-webkit-scrollbar { display: none; }
+  .daynav .brand { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin-right: auto; white-space: nowrap; }
+  .daynav .brand b { color: var(--accent); }
+  .daynav a {
+    text-decoration: none; color: var(--ink-soft); font-size: 13.5px; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px; white-space: nowrap; transition: color .25s, background .25s;
+  }
+  .daynav a .n { font-variant-numeric: tabular-nums; }
+  .daynav a:hover { color: var(--ink); background: var(--surface-2); }
+  .daynav a.active { color: #fff; background: var(--accent); }
+
+  /* ---------------- Sections ---------------- */
+  section { padding: 84px 0; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; letter-spacing: .28em; text-transform: uppercase; font-weight: 700; color: var(--accent);
+    margin: 0 0 14px;
+  }
+  .eyebrow::before { content: ""; width: 26px; height: 1.5px; background: var(--accent); display: inline-block; }
+  h2.sec {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(28px, 4.4vw, 42px); line-height: 1.14; margin: 0 0 14px; letter-spacing: -.01em; text-wrap: balance;
+  }
+  .lead { color: var(--ink-soft); font-size: 16.5px; max-width: 62ch; margin: 0; }
+
+  /* Overview */
+  .overview { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 40px; }
+  .fact {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 20px;
+    box-shadow: var(--shadow);
+  }
+  .fact .k { font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; }
+  .fact .v { font-family: var(--font-display); font-size: 21px; font-weight: 700; margin-top: 8px; line-height: 1.25; }
+  .fact .s { font-size: 13px; color: var(--ink-soft); margin-top: 3px; }
+  .themechips { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px;
+    font-size: 14px; font-weight: 600; border: 1px solid var(--line);
+  }
+  .chip.heal { background: var(--sea-soft); color: var(--sea); border-color: color-mix(in srgb, var(--sea) 25%, transparent); }
+  .chip.eat  { background: var(--accent-soft); color: var(--accent); border-color: color-mix(in srgb, var(--accent) 25%, transparent); }
+  .chip.us   { background: color-mix(in srgb, var(--gold) 15%, var(--surface)); color: var(--gold); border-color: color-mix(in srgb, var(--gold) 30%, transparent); }
+  .chip .ic { width: 16px; height: 16px; }
+
+  /* Day header band */
+  .day { position: relative; }
+  .day + .day { border-top: 1px solid var(--line-soft); }
+  .dayhead { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 8px; }
+  .dayhead .big {
+    font-family: var(--font-display); font-weight: 700; font-size: clamp(46px, 8vw, 78px); line-height: 1;
+    color: transparent; -webkit-text-stroke: 1.4px var(--accent); letter-spacing: -.02em;
+  }
+  .dayhead .titles h3 { font-family: var(--font-display); font-size: clamp(22px,3.2vw,30px); margin: 0; font-weight: 700; }
+  .dayhead .titles .date { color: var(--ink-soft); font-size: 14px; margin-top: 4px; font-variant-numeric: tabular-nums; }
+
+  /* Timeline */
+  .timeline { margin-top: 34px; position: relative; padding-left: 4px; }
+  .tl-item {
+    position: relative; display: grid; grid-template-columns: 92px 1fr; gap: 22px;
+    padding: 0 0 14px 0;
+  }
+  .tl-rail { position: relative; }
+  .tl-time { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 15px; color: var(--ink); padding-top: 20px; text-align: right; }
+  .tl-line { position: absolute; left: 0; top: 0; bottom: -14px; width: 0; }
+  .tl-body { position: relative; padding-left: 30px; padding-bottom: 26px; }
+  .tl-body::before { /* vertical line */
+    content: ""; position: absolute; left: 6px; top: 8px; bottom: -18px; width: 2px;
+    background: linear-gradient(var(--line), var(--line-soft));
+  }
+  .tl-item:last-child .tl-body::before { display: none; }
+  .tl-dot {
+    position: absolute; left: 0; top: 22px; width: 14px; height: 14px; border-radius: 50%;
+    background: var(--surface); border: 3px solid var(--accent); z-index: 2;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+  }
+  .tl-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+    padding: 18px 20px; box-shadow: var(--shadow);
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s;
+  }
+  .tl-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+  .tl-card .top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+  .tl-card h4 { margin: 0; font-size: 18.5px; font-weight: 700; letter-spacing: -.01em; }
+  .tl-card p { margin: 6px 0 0; color: var(--ink-soft); font-size: 14.6px; }
+  .tag {
+    font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 9px; border-radius: 7px;
+  }
+  .tag.eat { background: var(--accent-soft); color: var(--accent); }
+  .tag.heal { background: var(--sea-soft); color: var(--sea); }
+  .tag.us { background: color-mix(in srgb, var(--gold) 16%, var(--surface)); color: var(--gold); }
+  .tag.drive { background: var(--surface-2); color: var(--ink-soft); }
+  .tag.stay { background: color-mix(in srgb, var(--sea) 14%, var(--surface)); color: var(--sea); }
+  .meta-row { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12.8px; color: var(--ink-faint); }
+  .meta-row span { display: inline-flex; align-items: center; gap: 6px; }
+  .meta-row b { color: var(--ink-soft); font-weight: 600; }
+  .note {
+    margin-top: 12px; font-size: 13px; padding: 10px 13px; border-radius: 12px;
+    background: color-mix(in srgb, var(--gold) 10%, var(--surface-2)); color: var(--ink-soft);
+    border-left: 3px solid var(--gold);
+  }
+  .optcard {
+    margin: 8px 0 0 114px; border: 1px dashed color-mix(in srgb, var(--sea) 45%, var(--line));
+    border-radius: 16px; padding: 16px 18px; background: color-mix(in srgb, var(--sea) 6%, var(--surface));
+  }
+  .optcard .lbl { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--sea); }
+  .optcard h4 { margin: 6px 0 4px; font-size: 16.5px; }
+  .optcard p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+
+  /* Food grid */
+  .food { background: linear-gradient(180deg, var(--bg-2), var(--bg)); }
+  .more { background: linear-gradient(180deg, var(--bg), var(--bg-2)); }
+  .foodcard .kmeta { margin-top: 12px; font-size: 12.5px; color: var(--ink-faint); border-top: 1px solid var(--line-soft); padding-top: 10px; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .foodgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+  .foodcard {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px;
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s;
+  }
+  .foodcard::before {
+    content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    transform: scaleX(0); transform-origin: left; transition: transform .5s ease;
+  }
+  .foodcard:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+  .foodcard:hover::before { transform: scaleX(1); }
+  .foodcard .cat { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 800; color: var(--accent); }
+  .foodcard h4 { margin: 8px 0 6px; font-size: 19px; font-weight: 700; }
+  .foodcard p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+  .foodcard .addr { margin-top: 12px; font-size: 12.5px; color: var(--ink-faint); border-top: 1px solid var(--line-soft); padding-top: 10px; }
+
+  /* Info columns */
+  .infogrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 40px; }
+  .infobox { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px; box-shadow: var(--shadow); }
+  .infobox h3 { font-family: var(--font-display); font-size: 21px; margin: 0 0 16px; display: flex; align-items: center; gap: 10px; }
+  .infobox h3 .badge { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
+  .infobox h3 .badge.sea { background: var(--sea-soft); color: var(--sea); }
+  .checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+  .checklist li { display: flex; gap: 12px; font-size: 14.6px; color: var(--ink-soft); align-items: flex-start; }
+  .checklist li .mk { flex: none; width: 20px; height: 20px; border-radius: 6px; background: var(--sea-soft); color: var(--sea); display: grid; place-items: center; font-size: 12px; margin-top: 1px; }
+  .checklist li b { color: var(--ink); font-weight: 600; }
+
+  /* Project (우리 둘의 프로젝트) */
+  .project { background: linear-gradient(180deg, var(--bg-2), var(--bg)); }
+  .pcallout {
+    margin-top: 34px; border-radius: 22px; padding: 26px 28px;
+    background:
+      radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 55%),
+      radial-gradient(120% 140% at 0% 100%, color-mix(in srgb, var(--gold) 16%, transparent) 0%, transparent 55%),
+      var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .pcallout .em {
+    flex: none; width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center;
+    background: color-mix(in srgb, var(--accent) 14%, var(--surface)); color: var(--accent);
+  }
+  .pcallout p { margin: 0; font-size: 15.6px; color: var(--ink-soft); max-width: 64ch; }
+  .pcallout p b { color: var(--ink); font-weight: 700; }
+  .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 18px; }
+  .pcard {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px 22px;
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s;
+  }
+  .pcard:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb, var(--gold) 40%, var(--line)); }
+  .pcard .ic {
+    width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 15px;
+    background: color-mix(in srgb, var(--gold) 15%, var(--surface)); color: var(--gold);
+  }
+  .pcard .ic svg { width: 22px; height: 22px; }
+  .pcard .pk { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 800; color: var(--gold); }
+  .pcard h4 { margin: 7px 0 8px; font-family: var(--font-display); font-size: 19.5px; font-weight: 700; }
+  .pcard p { margin: 0; color: var(--ink-soft); font-size: 14.3px; }
+  .pcard p b { color: var(--ink); font-weight: 600; }
+  .pdisclaim { margin-top: 20px; font-size: 12.6px; color: var(--ink-faint); text-align: center; }
+
+  /* Closing */
+  .closing { text-align: center; background: linear-gradient(180deg, var(--bg), var(--bg-2)); }
+  .closing .mark { font-family: var(--font-display); font-size: clamp(30px,5vw,52px); font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
+  .closing .mark em { font-style: normal; color: var(--accent); }
+  .closing p { color: var(--ink-soft); max-width: 46ch; margin: 18px auto 0; font-size: 16px; }
+  .heartline { display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; color: var(--ink-faint); font-size: 13px; letter-spacing: .04em; }
+  .heartline svg { width: 18px; height: 18px; }
+
+  footer { padding: 40px 0 60px; text-align: center; color: var(--ink-faint); font-size: 12.5px; }
+  footer a { color: var(--ink-soft); }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 860px) {
+    .facts { grid-template-columns: repeat(2, 1fr); }
+    .foodgrid { grid-template-columns: repeat(2, 1fr); }
+    .infogrid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 18px; }
+    section { padding: 60px 0; }
+    .daynav .brand { margin-right: 14px; }        /* keep brand visible; links follow and scroll */
+    .facts { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .fact { padding: 18px 16px; border-radius: 16px; }
+    .fact .v { font-size: 19px; }
+    .foodgrid { grid-template-columns: 1fr; }
+    .infogrid { grid-template-columns: 1fr; }
+    .infobox { padding: 22px; }
+
+    .hero-inner { padding-bottom: 9svh; }
+    .hero h1 { font-size: clamp(40px, 12vw, 62px); }
+    .hero-sub { font-size: 15px; margin-top: 22px; }
+    .hero-meta { gap: 8px; }
+    .hero-meta span { font-size: 12px; padding: 7px 12px; }
+
+    h2.sec { font-size: clamp(26px, 7vw, 34px); }
+    .lead { font-size: 15.5px; }
+    .dayhead { gap: 12px; }
+    .dayhead .big { font-size: 42px; }
+
+    .tl-item { grid-template-columns: 52px 1fr; gap: 10px; }
+    .tl-time { font-size: 13px; padding-top: 19px; }
+    .tl-body { padding-left: 22px; }
+    .tl-card { padding: 16px; border-radius: 16px; }
+    .tl-card h4 { font-size: 17px; }
+    .tl-card p { font-size: 14px; }
+    .tl-dot { top: 19px; }
+    .meta-row { gap: 6px 12px; }
+    .optcard { margin-left: 62px; padding: 14px 16px; }
+
+    .pcard { padding: 20px 18px; border-radius: 16px; }
+    .pcallout { padding: 20px; gap: 16px; }
+    .foodcard { border-radius: 16px; }
+
+    .toggle { width: 40px; height: 40px; top: 12px; right: 12px; }
+  }
+  @media (max-width: 380px) {
+    .facts { grid-template-columns: 1fr; }
+    .hero-meta span { font-size: 11.5px; }
+  }
+</style>
+
+<button class="toggle" id="themeToggle" aria-label="라이트/다크 전환" title="라이트 / 다크 전환">◐</button>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="hero-inner wrap">
+    <p class="hero-eyebrow">East Sea · Gangneung</p>
+    <h1><span class="l">강릉,</span><span class="l">우리 둘의 사흘</span></h1>
+    <p class="hero-sub">정동진 일출부터 초당 순두부까지 — 힐링·먹방, 그리고 <b>우리 둘의 프로젝트</b>로 채운 2박 3일.</p>
+    <div class="hero-meta">
+      <span>2026.07.26 SUN – 07.28 TUE</span>
+      <span>2박 3일</span>
+      <span>자차 · EV3</span>
+      <span>호텔 위더스 정동진</span>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll<span class="dot"></span></div>
+</header>
+
+<!-- ===================== DAY NAV ===================== -->
+<nav class="daynav" aria-label="일자 이동">
+  <div class="wrap">
+    <span class="brand">강릉 <b>·</b> 사흘</span>
+    <a href="#overview">한눈에</a>
+    <a href="#day1"><span class="n">DAY 1</span></a>
+    <a href="#day2"><span class="n">DAY 2</span></a>
+    <a href="#day3"><span class="n">DAY 3</span></a>
+    <a href="#project">우리 프로젝트</a>
+    <a href="#food">먹방</a>
+    <a href="#more">더보기</a>
+    <a href="#info">체크리스트</a>
+  </div>
+</nav>
+
+<!-- ===================== OVERVIEW ===================== -->
+<section class="overview" id="overview">
+  <div class="wrap">
+    <p class="eyebrow reveal">Overview</p>
+    <h2 class="sec reveal">파도 소리로 시작해, 파도 소리로 잠드는 사흘</h2>
+    <p class="lead reveal">숙소는 바다 바로 앞 <b>호텔 위더스 정동진</b>. 정동진(남쪽 해안)을 베이스캠프 삼아 이동을 최소화하고, 강릉 시내·경포는 오가는 길에 자연스럽게 엮었습니다. 이번 여행의 테마는 <b>힐링 · 먹방 · 우리 둘의 프로젝트</b> — 그래서 빡빡한 관광 대신 <b>따뜻하게, 잘 먹고, 푹 쉬고, 오붓하게</b>에 초점을 맞췄습니다.</p>
+
+    <div class="facts">
+      <div class="fact reveal"><div class="k">기간</div><div class="v">2박 3일</div><div class="s">7/26 일 – 7/28 화</div></div>
+      <div class="fact reveal"><div class="k">이동</div><div class="v">자차 · EV3</div><div class="s">출발 전 완충 권장</div></div>
+      <div class="fact reveal"><div class="k">숙소</div><div class="v">호텔 위더스</div><div class="s">강릉 강동면 정동진리</div></div>
+      <div class="fact reveal"><div class="k">인원</div><div class="v">둘이서</div><div class="s">부부 여행</div></div>
+    </div>
+
+    <div class="themechips reveal">
+      <span class="chip heal">힐링 — 바다·일출·산책</span>
+      <span class="chip eat">먹방 — 순두부·회·시장</span>
+      <span class="chip us">우리 둘의 프로젝트 — 따뜻하게·오붓하게</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DAY 1 ===================== -->
+<section class="day" id="day1">
+  <div class="wrap">
+    <div class="dayhead reveal">
+      <div class="big">01</div>
+      <div class="titles">
+        <h3>도착, 그리고 첫 끼부터 먹방</h3>
+        <div class="date">7월 26일 · 일요일</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">08:30</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag drive">Drive</span><h4>출발 · EV3 완충 체크</h4></div>
+            <p>집에서 강릉까지 약 2시간 30분~3시간. 출발 전 완전 충전해 두면 2박 3일 내내 배터리 걱정 없이 여유롭게 다닐 수 있어요. 휴게소에서 커피 한 잔 쉬어가며.</p>
+            <div class="note">EV3 롱레인지는 1회 충전으로 왕복이 넉넉합니다. 필요하면 강릉 시내 급속충전소를 이용하세요.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">12:00</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag eat">먹방</span><h4>초당순두부마을 — 첫 끼</h4></div>
+            <p>강릉의 상징, 초당 순두부. <b>동화가든</b>의 얼큰한 짬뽕순두부, 또는 <b>초당할머니순두부</b>의 순두부백반·얼큰째복순두부가 대표 메뉴예요. 점심에 웨이팅이 있으니 조금 이르게 도착하는 게 팁.</p>
+            <div class="meta-row">
+              <span><b>동화가든</b> 033-652-9885</span>
+              <span><b>초당할머니순두부</b> 033-652-2058</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">13:40</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag eat">먹방</span><h4>순두부젤라또 — 디저트 산책</h4></div>
+            <p>순두부로 만든 고소한 젤라또를 손에 들고 초당 마을을 천천히 걷기. 밥 먹고 바로 이동보다, 소화도 시킬 겸 15분 여유 산책.</p>
+            <div class="meta-row"><span><b>주소</b> 강릉시 초당순두부길 95-5</span><span><b>운영</b> 매일 09:20–19:30</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">14:30</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">바다 · 포토</span><h4>강문해변</h4></div>
+            <p>강릉의 감성 포토존. 화이트톤 조형물과 푸른 바다가 어우러진 인생샷 스팟이자, 바다와 호수가 만나는 잔잔한 해변이에요. 모래 밟으며 둘이서 사진 남기기 딱 좋습니다.</p>
+            <div class="meta-row"><span><b>바로 옆</b> 경포해변 · 안목해변으로 이어지는 해안</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">15:30</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">힐링</span><h4>안목해변 커피거리</h4></div>
+            <p>강릉을 '커피의 도시'로 만든 바로 그 바닷가. 1세대 바리스타의 <b>보헤미안 박이추커피</b>, 강릉 커피를 대표하는 <b>테라로사</b>에서 파도를 보며 핸드드립 한 잔. 오늘의 페이스를 여기서 늦춥니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">17:00</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag stay">체크인</span><h4>호텔 위더스 정동진</h4></div>
+            <p>안목에서 정동진까지 약 20분. 바다 바로 앞 숙소에 짐을 풀고 잠시 휴식. 창밖으로 동해가 펼쳐지는 정동진의 첫 오후.</p>
+            <div class="meta-row"><span><b>주소</b> 강원 강릉시 강동면 정동진리 50-18</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">18:30</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag eat">먹방</span><h4>저녁 — 정동진 &amp; 시내 중 선택</h4></div>
+            <p>가볍게는 정동진 인근에서, 든든하게 먹고 싶으면 시내로 나가 <b>엄지네포장마차</b>(꼬막비빔밥·육사시미) 원정도 좋아요. 오늘 많이 걸었으니 취향껏.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">20:00</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag us">우리 프로젝트</span><h4>정동진 밤바다 &amp; 반신욕</h4></div>
+            <p>파도 소리 들으며 해변을 잠깐 걷고, 잠들기 전 <b>따뜻한 물로 반신욕·족욕</b>으로 몸을 데웁니다. 카페인·음주는 가볍게 — 첫날부터 컨디션을 편안하게 맞춰 둬요.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DAY 2 ===================== -->
+<section class="day" id="day2">
+  <div class="wrap">
+    <div class="dayhead reveal">
+      <div class="big">02</div>
+      <div class="titles">
+        <h3>일출, 바다부채길, 그리고 예술</h3>
+        <div class="date">7월 27일 · 월요일</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">05:20</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">힐링</span><h4>정동진 해변 일출</h4></div>
+            <p>호텔 바로 앞이 일출 명소. 이불째 나가 동해의 아침을 맞습니다. 7월 말 일출은 대략 5시 20분경(정확한 시각은 당일 확인).</p>
+            <div class="note">새벽 바닷바람이 서늘합니다. 얇은 겉옷 하나 챙기세요.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">06:10</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag us">우리 프로젝트</span><h4>다시 눈 붙이기 · 조식</h4></div>
+            <p>일출을 봤으니 서두르지 않아요. 방으로 돌아와 <b>한숨 더 자고</b>, 느긋하게 조식. 오늘도 컨디션 우선입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">09:00</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">바다 · 포토</span><h4>정동진역</h4></div>
+            <p><b>세계에서 바다와 가장 가까운 기차역</b>(기네스 등재, 철길이 바다에서 약 50m). 드라마 '모래시계' 촬영지이자 승강장의 소나무가 유명해요. 기차와 바다를 배경으로 인증샷 남기기 좋은 곳.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">09:40</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">액티비티</span><h4>정동진 레일바이크 <span style="font-weight:600;color:var(--ink-faint);font-size:12px">(선택)</span></h4></div>
+            <p>정동진역에서 출발해 모래시계공원을 도는 <b>바다와 가장 가까운 레일바이크</b>. 둘이 페달 밟으며 해안 풍경을 즐기는 30~50분 코스. 운행 시간·예약은 당일 현장/홈페이지 확인.</p>
+            <div class="note">체력을 아끼고 싶으면 이 코스는 건너뛰고, 모래시계공원 산책으로 대체해도 좋아요.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">10:40</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">힐링</span><h4>정동심곡 바다부채길</h4></div>
+            <p>200만~300만 년 지각변동의 흔적을 걷는 해안 절벽길. <b>심곡항 ↔ 썬크루즈</b> 구간, 총 3.01km(천연기념물 제437호). 왕복이 부담되면 편도만 걷고 돌아와도 충분히 좋아요.</p>
+            <div class="meta-row"><span><b>거리</b> 3.01km · 해안 데크길</span><span><b>출입구</b> 심곡항 / 썬크루즈 주차장</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">12:40</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag eat">먹방</span><h4>점심 — 정동진 인근</h4></div>
+            <p>부채길을 걸었으니 든든하게. 정동진·심곡 인근 식당에서 물회·회덮밥·해물 요리로 재충전. 오후 일정 전에 잠시 쉬어갑니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">14:00</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">힐링</span><h4>하슬라아트월드</h4></div>
+            <p>바다를 배경으로 한 3만여 평의 조각정원과 오션뷰 카페. 천천히 걸으며 사진 찍기 좋은, 정동진 남쪽의 예술 공간입니다. 커피 한 잔과 함께 여유롭게.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">16:00</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag us">우리 프로젝트</span><h4>모래시계공원 &amp; 호텔 휴식</h4></div>
+            <p>1년에 한 바퀴 도는 세계 최대 모래시계를 구경하고, 호텔로 돌아와 노곤한 다리를 쉽니다. <b>따뜻한 물로 반신욕</b>하고 오후 낮잠 한숨 — 스트레스 없이 컨디션을 채우는 게 오늘의 진짜 일정이에요.</p>
+            <div class="note">호텔 위더스에 별도 스파·사우나 시설은 확인되지 않아 <b>객실 반신욕</b> 기준으로 계획했어요. 자쿠지·스파(커플) 객실 유무는 예약 시 확인하세요.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">18:30</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag us">우리 프로젝트</span><h4>로맨틱 디너</h4></div>
+            <p>따뜻한 국물 요리로 든든하게. 오늘 하루의 사진을 함께 넘겨보며, 방해 없는 정동진의 두 번째 밤을 오롯이 둘이서 느리게 보냅니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">20:30</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag us">우리 프로젝트</span><h4>정동진 밤바다 &amp; 별</h4></div>
+            <p>도심보다 어두운 정동진 밤하늘. 파도 소리 들으며 잠깐 별을 올려다보고, 다시 반신욕으로 몸을 데운 뒤 편안한 밤을.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="optcard reveal">
+        <div class="lbl">Optional · 북쪽 원정 (반나절)</div>
+        <h4>주문진 도깨비 방사제 &amp; 수산시장</h4>
+        <p>시간·체력에 여유가 있으면 북쪽으로 30~40분. 드라마 '도깨비' 촬영지인 <b>영진해변 방사제</b>에서 사진을 남기고, <b>주문진 수산시장</b>에서 갓 잡은 오징어회·물회로 먹방. 소돌 아들바위공원·주문진 등대도 근처예요. 정동진 기준 반대 방향이라 다녀오면 하루가 꽉 찹니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DAY 3 ===================== -->
+<section class="day" id="day3">
+  <div class="wrap">
+    <div class="dayhead reveal">
+      <div class="big">03</div>
+      <div class="titles">
+        <h3>경포 한 바퀴, 시장 먹방, 그리고 집으로</h3>
+        <div class="date">7월 28일 · 화요일</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">08:30</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag stay">체크아웃</span><h4>체크아웃 &amp; 정동진과 작별</h4></div>
+            <p>마지막으로 바다 한 번 눈에 담고 짐 정리. 정동진에서 경포까지는 약 30분, 강릉 시내 방향으로 이동합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">09:00</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">바다 · 포토</span><h4>경포해변</h4></div>
+            <p>강릉을 대표하는 넓고 부드러운 백사장. 아침의 한적한 해변을 맨발로 걷기 좋아요. 여름이면 잠깐 발 담그기도 딱.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">09:40</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">힐링</span><h4>경포호 둘레길 &amp; 경포대</h4></div>
+            <p>호수를 따라 이어지는 산책로 — 갈대밭, 자전거길, 그리고 관동팔경의 <b>경포대</b> 누각(강원유형문화재 제6호). 해변에서 호수로 이어지는 감성 코스예요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">10:40</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">택 1</span><h4>경포 인근 명소 하나</h4></div>
+            <p>취향에 따라 한 곳만 골라 여유롭게. 비 오거나 더우면 실내가 답이에요.</p>
+            <div class="meta-row">
+              <span><b>참소리축음기·에디슨과학박물관</b> 경포로 393</span>
+              <span><b>경포아쿠아리움</b> 성수기 10:00–20:00</span>
+              <span><b>선교장</b> 조선 사대부 고택</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">11:45</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag eat">먹방</span><h4>강릉중앙시장</h4></div>
+            <p>여행의 마지막 먹방. <b>중앙닭강정</b>의 바삭한 닭강정, 설탕 듬뿍 <b>꽈배기</b>, <b>오징어순대</b>까지. 돌아가는 길에 먹을 간식도 넉넉히 포장해요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">13:00</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag eat">먹방</span><h4>마무리 점심 — 교동반점</h4></div>
+            <p>강릉 짬뽕의 대명사. 화요일이라 정상 영업합니다(월요일 휴무이니 오늘 방문이 딱). 웨이팅을 피하려면 꼬막이 당길 땐 <b>엄지네포장마차</b>로 대체해도 좋아요.</p>
+            <div class="meta-row"><span><b>교동반점</b> 강릉대로 205 · 10:00–18:00</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">14:30</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag drive">Drive</span><h4>집으로</h4></div>
+            <p>남은 배터리를 확인하고 여유롭게 출발. 사흘치 바다와 순두부와 커피를 가득 안고 돌아가는 길.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECT ===================== -->
+<section class="project" id="project">
+  <div class="wrap">
+    <p class="eyebrow reveal">Project · Us</p>
+    <h2 class="sec reveal">우리 둘의 프로젝트</h2>
+    <p class="lead reveal">이번 여행의 숨은 목표. 거창한 이벤트가 아니라, <b>몸과 마음을 편하게 만드는 다섯 가지 리듬</b>을 사흘 동선에 자연스럽게 심어 두었습니다. 잘 쉬고 잘 먹는 것, 그게 전부예요.</p>
+
+    <div class="pcallout reveal">
+      <div class="em" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20s-7-4.35-9.33-8.5C1.1 8.6 2.6 5.5 5.6 5.5c1.9 0 3.1 1.1 3.9 2.3C10.3 6.6 11.5 5.5 13.4 5.5c3 0 4.5 3.1 2.93 6C19 15.65 12 20 12 20z" fill="currentColor"/></svg>
+      </div>
+      <p><b>핵심은 스트레스 제로.</b> 빡빡한 관광 리스트를 지우고, 따뜻하게 데우고 · 든든히 먹고 · 충분히 자고 · 방해 없이 둘만의 시간을 갖는 데 하루를 씁니다. 컨디션이 곧 이번 여행의 성공 지표예요.</p>
+    </div>
+
+    <div class="pgrid">
+      <div class="pcard reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 21h16M6 21v-6c0-3 2.5-5 6-5s6 2 6 5v6M9 6c0-1.5 1-2 1-3M13 6c0-1.5 1-2 1-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <div class="pk">Warm</div>
+        <h4>따뜻하게 데우기</h4>
+        <p>객실에서 잠들기 전 <b>따뜻한 물로 반신욕·족욕</b>, 그리고 초당 순두부·저녁 국물 요리처럼 <b>따뜻한 음식</b> 위주로 몸을 데우기.</p>
+      </div>
+      <div class="pcard reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 3v7a3 3 0 0 0 6 0V3M8 10v11M18 3c-1.5 1-2 3-2 6s.5 4 2 4v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pk">Nourish</div>
+        <h4>잘 먹기</h4>
+        <p>강릉이 마침 좋은 재료의 고장. <b>순두부·두부</b>(단백질), <b>굴·조개·오징어</b>(아연) 같은 로컬 먹거리를 챙기고, <b>카페인·음주는 가볍게</b>.</p>
+      </div>
+      <div class="pcard reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pk">Rest</div>
+        <h4>푹 쉬기</h4>
+        <p>일정은 여백이 넉넉하게. 일출을 보고 <b>다시 눈 붙이기</b>, 오후엔 <b>낮잠</b> 한숨. 무리한 이동 대신 정동진 안에서 느리게 움직입니다.</p>
+      </div>
+      <div class="pcard reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20s-7-4.35-9.33-8.5C1.1 8.6 2.6 5.5 5.6 5.5c1.9 0 3.1 1.1 3.9 2.3C10.3 6.6 11.5 5.5 13.4 5.5c3 0 4.5 3.1 2.93 6C19 15.65 12 20 12 20z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <div class="pk">Together</div>
+        <h4>오붓하게</h4>
+        <p><b>이른 저녁, 방해 없는 밤.</b> 바다 앞 숙소에서 알림 꺼 두고 둘만의 시간을. 사진 넘겨보며 하루를 천천히 마무리합니다.</p>
+      </div>
+      <div class="pcard reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 4.5a1.4 1.4 0 1 0 0-.1M11 8l-2 4 3 2 1 5M9 12l-3 1M14 14l3 1-1 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pk">Move</div>
+        <h4>가볍게 걷기</h4>
+        <p><b>바다부채길·경포호 산책</b>으로 무리 없이 몸 풀기. 소화도 시키고 혈액순환도 돕는, 딱 기분 좋을 만큼의 걸음.</p>
+      </div>
+    </div>
+
+    <p class="pdisclaim reveal">※ 건강·컨디션 관리는 일반적인 웰니스 관점의 제안이며, 의학적 조언이 아닙니다. 필요하면 전문의와 상담하세요.</p>
+  </div>
+</section>
+
+<!-- ===================== FOOD ===================== -->
+<section class="food" id="food">
+  <div class="wrap">
+    <p class="eyebrow reveal">Eat List</p>
+    <h2 class="sec reveal">강릉 먹방 지도</h2>
+    <p class="lead reveal">이번 여행에서 챙긴 실제 맛집들. 웨이팅이 있는 곳이 많으니, 식사 시간보다 조금 이르게 움직이는 걸 추천합니다.</p>
+
+    <div class="foodgrid">
+      <div class="foodcard reveal"><div class="cat">순두부</div><h4>동화가든</h4><p>얼큰한 국물의 짬뽕순두부. 반찬 리필 인심도 넉넉.</p><div class="addr">초당순두부마을 · 033-652-9885</div></div>
+      <div class="foodcard reveal"><div class="cat">순두부</div><h4>초당할머니순두부</h4><p>부드러운 순두부백반과 얼큰째복순두부가 간판.</p><div class="addr">초당순두부마을 · 033-652-2058</div></div>
+      <div class="foodcard reveal"><div class="cat">디저트</div><h4>순두부젤라또</h4><p>고소한 순두부 젤라또, 초당의 인기 디저트.</p><div class="addr">초당순두부길 95-5 · 09:20–19:30</div></div>
+      <div class="foodcard reveal"><div class="cat">커피</div><h4>보헤미안 박이추커피</h4><p>1세대 바리스타의 핸드드립. 안목 바다 앞.</p><div class="addr">안목해변 커피거리</div></div>
+      <div class="foodcard reveal"><div class="cat">커피</div><h4>테라로사</h4><p>강릉을 커피의 도시로 만든 로스터리.</p><div class="addr">강릉 대표 카페</div></div>
+      <div class="foodcard reveal"><div class="cat">꼬막·회</div><h4>엄지네포장마차</h4><p>줄 서서 먹는 꼬막비빔밥과 육사시미.</p><div class="addr">강릉시 포남동</div></div>
+      <div class="foodcard reveal"><div class="cat">짬뽕</div><h4>교동반점</h4><p>강릉 짬뽕의 대명사. 월요일 휴무.</p><div class="addr">강릉대로 205 · 10:00–18:00</div></div>
+      <div class="foodcard reveal"><div class="cat">시장</div><h4>강릉중앙시장</h4><p>닭강정·꽈배기·오징어순대, 걸어 다니며 먹방.</p><div class="addr">강릉 시내 전통시장</div></div>
+      <div class="foodcard reveal"><div class="cat">회·해산물</div><h4>주문진 수산시장</h4><p>갓 잡은 오징어회·물회. 북쪽 30~40분(옵션).</p><div class="addr">주문진항 회센터</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MORE (옵션 명소) ===================== -->
+<section class="more" id="more">
+  <div class="wrap">
+    <p class="eyebrow reveal">Add-ons</p>
+    <h2 class="sec reveal">더 둘러볼 곳 — 취향껏 추가</h2>
+    <p class="lead reveal">기본 동선에 시간이 남거나, 날씨가 변할 때 골라 넣기 좋은 실제 장소들. <b>다 갈 필요는 없어요.</b> 그날의 컨디션과 하늘을 보고 하나씩만 더해 보세요.</p>
+
+    <div class="foodgrid">
+      <div class="foodcard reveal"><div class="cat">바다 · 한적</div><h4>사천해변</h4><p>안목보다 조용한 현지인 해변. 붐비지 않게 바다를 즐기고 싶을 때.</p><div class="kmeta"><span>강릉 북쪽 해안</span></div></div>
+      <div class="foodcard reveal"><div class="cat">액티비티</div><h4>정동진 레일바이크</h4><p>정동진역에서 출발하는 바다 옆 레일. 둘이 페달 밟으며 해안 풍경을.</p><div class="kmeta"><span>운행·예약 당일 확인</span></div></div>
+      <div class="foodcard reveal"><div class="cat">실내 · 비 올 때</div><h4>경포아쿠아리움</h4><p>경포호 옆 아쿠아리움. 더운 날·비 오는 날 실내 코스로 딱.</p><div class="kmeta"><span>성수기 10:00–20:00</span><span>연중무휴</span></div></div>
+      <div class="foodcard reveal"><div class="cat">실내 · 문화</div><h4>참소리축음기·에디슨과학박물관</h4><p>축음기·뮤직박스와 에디슨 발명품이 가득한 사립 박물관.</p><div class="kmeta"><span>경포로 393</span></div></div>
+      <div class="foodcard reveal"><div class="cat">한옥 · 고택</div><h4>선교장</h4><p>조선 사대부가의 대저택. 고즈넉한 한옥과 정원을 천천히 산책.</p><div class="kmeta"><span>국가민속문화재</span></div></div>
+      <div class="foodcard reveal"><div class="cat">역사</div><h4>오죽헌</h4><p>신사임당·율곡 이이의 생가. 검은 대숲의 청량함이 인상적.</p><div class="kmeta"><span>보물 제165호</span></div></div>
+      <div class="foodcard reveal"><div class="cat">드라마 촬영지</div><h4>주문진 도깨비 방사제</h4><p>영진해변 방사제, 드라마 '도깨비'의 그 장면. 인증샷 명소.</p><div class="kmeta"><span>주문진 · 북쪽 30–40분</span></div></div>
+      <div class="foodcard reveal"><div class="cat">바다 · 기암</div><h4>소돌 아들바위공원</h4><p>주문진 소돌해변의 기암괴석 공원. 탁 트인 바다 전망.</p><div class="kmeta"><span>주문진 북단</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INFO ===================== -->
+<section id="info">
+  <div class="wrap">
+    <p class="eyebrow reveal">Before You Go</p>
+    <h2 class="sec reveal">떠나기 전, 체크리스트</h2>
+
+    <div class="infogrid">
+      <div class="infobox reveal">
+        <h3><span class="badge">EV</span>EV3 운전·충전 팁</h3>
+        <ul class="checklist">
+          <li><span class="mk">✓</span><span><b>출발 전 완충.</b> 롱레인지 기준 1회 충전으로 왕복이 여유롭습니다.</span></li>
+          <li><span class="mk">✓</span><span><b>현지 충전은 시내 급속충전소</b>를 활용. 호텔 충전 가능 여부는 예약 시 미리 확인하세요.</span></li>
+          <li><span class="mk">✓</span><span><b>여름 주차는 그늘·실내로.</b> 출발 전 공조 예약(프리컨디셔닝)으로 시원하게.</span></li>
+          <li><span class="mk">✓</span><span><b>해안도로 드라이브</b> 구간은 회생제동으로 배터리를 아끼며 풍경을 즐기기 좋아요.</span></li>
+        </ul>
+      </div>
+
+      <div class="infobox reveal">
+        <h3><span class="badge sea">☀</span>여름 여행 준비물</h3>
+        <ul class="checklist">
+          <li><span class="mk">✓</span><span><b>자외선 차단제·모자·선글라스</b> — 7월 말 동해 햇살은 강합니다.</span></li>
+          <li><span class="mk">✓</span><span><b>얇은 겉옷</b> — 새벽 일출·해안 바람 대비.</span></li>
+          <li><span class="mk">✓</span><span><b>편한 신발</b> — 바다부채길 3km, 경포호 산책용.</span></li>
+          <li><span class="mk">✓</span><span><b>물놀이 준비물</b>과 여벌 옷, 그리고 <b>일출 알람(≈ 05:00)</b>.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+  <div class="wrap">
+    <div class="mark reveal">따뜻하게, 실컷 먹고,<br><em>오롯이 둘이서.</em></div>
+    <p class="reveal">계획은 지도일 뿐, 정답은 그날의 바다와 기분에 맡기세요. 잘 쉬고 잘 먹는 사흘이, 우리 프로젝트의 가장 좋은 시작이 되길.</p>
+    <div class="heartline reveal">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20s-7-4.35-9.33-8.5C1.1 8.6 2.6 5.5 5.6 5.5c1.9 0 3.1 1.1 3.9 2.3C10.3 6.6 11.5 5.5 13.4 5.5c3 0 4.5 3.1 2.93 6C19 15.65 12 20 12 20z" fill="currentColor"/></svg>
+      <span>강릉 · 정동진 · 2026 여름</span>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>본 플랜의 장소·연락처는 공개 정보를 기반으로 정리했습니다. 영업시간·휴무·일출 시각은 방문 전 다시 확인하시길 권합니다.</p>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- theme toggle ---------- */
+  var root = document.documentElement;
+  var btn = document.getElementById("themeToggle");
+  btn.addEventListener("click", function () {
+    var cur = root.getAttribute("data-theme");
+    if (!cur) {
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      cur = prefersDark ? "dark" : "light";
+    }
+    root.setAttribute("data-theme", cur === "dark" ? "light" : "dark");
+  });
+
+  /* ---------- reveal on scroll ---------- */
+  var revs = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    revs.forEach(function (el) { el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    revs.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- active nav link ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll(".daynav a"));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+  var secs = ["overview", "day1", "day2", "day3", "project", "food", "more", "info"]
+    .map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if ("IntersectionObserver" in window) {
+    var navio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove("active"); });
+          if (map[e.target.id]) map[e.target.id].classList.add("active");
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+    secs.forEach(function (s) { navio.observe(s); });
+  }
+
+  /* ---------- hero canvas: night → dawn over the East Sea ---------- */
+  var canvas = document.getElementById("sky");
+  var ctx = canvas.getContext("2d");
+  var W, H, DPR, stars = [], t0 = 0;
+
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = Math.floor(W * DPR); canvas.height = Math.floor(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    stars = [];
+    var n = Math.round((W * H) / 9000);
+    for (var i = 0; i < n; i++) {
+      stars.push({ x: Math.random() * W, y: Math.random() * H * 0.62, r: Math.random() * 1.3 + 0.2, tw: Math.random() * Math.PI * 2 });
+    }
+  }
+
+  function lerp(a, b, p) { return a + (b - a) * p; }
+  function mix(c1, c2, p) {
+    return "rgb(" + Math.round(lerp(c1[0], c2[0], p)) + "," + Math.round(lerp(c1[1], c2[1], p)) + "," + Math.round(lerp(c1[2], c2[2], p)) + ")";
+  }
+
+  // night palette -> dawn palette (top, mid, low sky)
+  var nightTop = [7, 16, 27], nightMid = [17, 30, 46], nightLow = [30, 44, 60];
+  var dawnTop = [24, 44, 74], dawnMid = [232, 120, 78], dawnLow = [255, 186, 120];
+
+  function draw(ts) {
+    if (!t0) t0 = ts;
+    var elapsed = (ts - t0) / 1000;
+    // dawn progress: eases from 0 to 1 over ~6s, then holds
+    var p = Math.min(elapsed / 6, 1);
+    var ease = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+
+    var horizon = H * 0.66;
+
+    // sky gradient
+    var g = ctx.createLinearGradient(0, 0, 0, horizon);
+    g.addColorStop(0, mix(nightTop, dawnTop, ease));
+    g.addColorStop(0.55, mix(nightMid, dawnMid, ease));
+    g.addColorStop(1, mix(nightLow, dawnLow, ease));
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, horizon);
+
+    // stars fade out as dawn breaks
+    var starAlpha = Math.max(0, 1 - ease * 1.5);
+    if (starAlpha > 0.01) {
+      for (var i = 0; i < stars.length; i++) {
+        var s = stars[i];
+        var tw = reduce ? 0.8 : (0.55 + 0.45 * Math.sin(elapsed * 1.5 + s.tw));
+        ctx.globalAlpha = starAlpha * tw;
+        ctx.fillStyle = "#EAF1FF";
+        ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    // sun rising from the horizon
+    var sunX = W * 0.5;
+    var sunTravel = lerp(horizon + 40, horizon - H * 0.22, ease);
+    var sunR = lerp(34, 62, ease);
+    // glow
+    var glow = ctx.createRadialGradient(sunX, sunTravel, 0, sunX, sunTravel, sunR * 6);
+    glow.addColorStop(0, "rgba(255,214,150," + (0.55 * ease + 0.1) + ")");
+    glow.addColorStop(1, "rgba(255,214,150,0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, W, horizon + 60);
+    // disc
+    var disc = ctx.createRadialGradient(sunX, sunTravel, 0, sunX, sunTravel, sunR);
+    disc.addColorStop(0, "#FFF3D6");
+    disc.addColorStop(0.6, "#FFC989");
+    disc.addColorStop(1, "#FF9A5A");
+    ctx.fillStyle = disc;
+    ctx.globalAlpha = 0.35 + 0.65 * ease;
+    ctx.beginPath(); ctx.arc(sunX, sunTravel, sunR, 0, Math.PI * 2); ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // sea
+    var seaTop = mix([16, 26, 38], [43, 78, 104], ease);
+    var seaBot = mix([8, 15, 24], [22, 46, 66], ease);
+    var sg = ctx.createLinearGradient(0, horizon, 0, H);
+    sg.addColorStop(0, seaTop); sg.addColorStop(1, seaBot);
+    ctx.fillStyle = sg;
+    ctx.fillRect(0, horizon, W, H - horizon);
+
+    // sun reflection shimmer on water
+    var reflA = 0.30 * ease + 0.05;
+    for (var r = 0; r < 26; r++) {
+      var ry = horizon + (r / 26) * (H - horizon);
+      var wob = reduce ? 0 : Math.sin(elapsed * 2 + r * 0.6) * (2 + r * 0.5);
+      var wlen = lerp(sunR * 0.5, sunR * 2.4, r / 26);
+      ctx.strokeStyle = "rgba(255,205,150," + (reflA * (1 - r / 26)) + ")";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(sunX - wlen + wob, ry);
+      ctx.lineTo(sunX + wlen + wob, ry);
+      ctx.stroke();
+    }
+
+    // faint horizon band
+    ctx.fillStyle = "rgba(255,225,190," + (0.22 * ease) + ")";
+    ctx.fillRect(0, horizon - 2, W, 3);
+
+    if (!reduce) {
+      raf = requestAnimationFrame(draw);
+    } else if (p < 1) {
+      // one settle frame for reduced motion: jump to final state
+      t0 = ts - 6000;
+      requestAnimationFrame(draw);
+    }
+  }
+
+  var raf;
+  function start() { resize(); t0 = 0; if (raf) cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); }
+  window.addEventListener("resize", function () { resize(); });
+  start();
+})();
+</script>

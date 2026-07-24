@@ -446,7 +446,8 @@
     .pcallout { padding: 20px; gap: 16px; }
     .foodcard { border-radius: 16px; }
 
-    .toggle { width: 40px; height: 40px; top: 12px; right: 12px; }
+    /* 모바일: 상단 스티키 바와 겹치지 않게 우하단 플로팅으로 (테마 대응) */
+    .toggle { width: 44px; height: 44px; top: auto; bottom: 18px; right: 14px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); box-shadow: 0 8px 22px -8px rgba(0,0,0,.45); }
   }
   @media (max-width: 380px) {
     .facts { grid-template-columns: 1fr; }
@@ -517,7 +518,7 @@
     <div class="dayhead reveal">
       <div class="big">01</div>
       <div class="titles">
-        <h3>도착, 그리고 첫 끼부터 먹방</h3>
+        <h3>도착, 바로 체크인하고 정동진에 스며들기</h3>
         <div class="date">7월 26일 · 일요일</div>
       </div>
     </div>
@@ -549,54 +550,43 @@
       </div>
 
       <div class="tl-item reveal">
-        <div class="tl-rail"><div class="tl-time">13:40</div></div>
+        <div class="tl-rail"><div class="tl-time">13:15</div></div>
         <div class="tl-body"><div class="tl-dot"></div>
           <div class="tl-card">
             <div class="top"><span class="tag eat">먹방</span><h4>순두부젤라또 — 디저트 산책</h4></div>
-            <p>순두부로 만든 고소한 젤라또를 손에 들고 초당 마을을 천천히 걷기. 밥 먹고 바로 이동보다, 소화도 시킬 겸 15분 여유 산책.</p>
+            <p>순두부로 만든 고소한 젤라또를 손에 들고 초당 마을을 천천히 걷기. 소화도 시킬 겸 가볍게 걷고, 이후 정동진 숙소로 이동(약 30분).</p>
             <div class="meta-row"><span><b>주소</b> 강릉시 초당순두부길 95-5</span><span><b>운영</b> 매일 09:20–19:30</span></div>
           </div>
         </div>
       </div>
 
       <div class="tl-item reveal">
-        <div class="tl-rail"><div class="tl-time">14:30</div></div>
+        <div class="tl-rail"><div class="tl-time">15:00</div></div>
         <div class="tl-body"><div class="tl-dot"></div>
           <div class="tl-card">
-            <div class="top"><span class="tag heal">바다 · 포토</span><h4>강문해변</h4></div>
-            <p>강릉의 감성 포토존. 화이트톤 조형물과 푸른 바다가 어우러진 인생샷 스팟이자, 바다와 호수가 만나는 잔잔한 해변이에요. 모래 밟으며 둘이서 사진 남기기 딱 좋습니다.</p>
-            <div class="meta-row"><span><b>바로 옆</b> 경포해변 · 안목해변으로 이어지는 해안</span></div>
+            <div class="top"><span class="tag stay">체크인 먼저</span><h4>호텔 위더스 정동진 — 가장 먼저</h4></div>
+            <p>정동진에 도착하면 <b>제일 먼저 체크인</b>. 짐을 풀고 한숨 돌린 뒤, 서두르지 않고 정동진을 천천히 즐깁니다. 바다 바로 앞 숙소라 창밖이 바로 동해예요.</p>
+            <div class="meta-row"><span><b>주소</b> 강원 강릉시 강동면 정동진리 50-18</span><span><b>체크인</b> 15:00~</span></div>
           </div>
         </div>
       </div>
 
       <div class="tl-item reveal">
-        <div class="tl-rail"><div class="tl-time">15:30</div></div>
+        <div class="tl-rail"><div class="tl-time">16:30</div></div>
         <div class="tl-body"><div class="tl-dot"></div>
           <div class="tl-card">
-            <div class="top"><span class="tag heal">힐링</span><h4>안목해변 커피거리</h4></div>
-            <p>강릉을 '커피의 도시'로 만든 바로 그 바닷가. 1세대 바리스타의 <b>보헤미안 박이추커피</b>, 강릉 커피를 대표하는 <b>테라로사</b>에서 파도를 보며 핸드드립 한 잔. 오늘의 페이스를 여기서 늦춥니다.</p>
+            <div class="top"><span class="tag heal">바다 · 힐링</span><h4>정동진 해변 산책</h4></div>
+            <p>숙소 바로 앞 정동진 해변을 맨발로 걷기. 파도 소리 들으며 첫날의 긴장을 풀고, 저물어가는 바다를 배경으로 사진도 남겨요. (모래시계공원·정동진역은 내일 여유롭게)</p>
           </div>
         </div>
       </div>
 
       <div class="tl-item reveal">
-        <div class="tl-rail"><div class="tl-time">17:00</div></div>
-        <div class="tl-body"><div class="tl-dot"></div>
-          <div class="tl-card">
-            <div class="top"><span class="tag stay">체크인</span><h4>호텔 위더스 정동진</h4></div>
-            <p>안목에서 정동진까지 약 20분. 바다 바로 앞 숙소에 짐을 풀고 잠시 휴식. 창밖으로 동해가 펼쳐지는 정동진의 첫 오후.</p>
-            <div class="meta-row"><span><b>주소</b> 강원 강릉시 강동면 정동진리 50-18</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item reveal">
-        <div class="tl-rail"><div class="tl-time">18:30</div></div>
+        <div class="tl-rail"><div class="tl-time">18:00</div></div>
         <div class="tl-body"><div class="tl-dot"></div>
           <div class="tl-card">
             <div class="top"><span class="tag eat">먹방</span><h4>저녁 — 정동진 &amp; 시내 중 선택</h4></div>
-            <p>가볍게는 정동진 인근에서, 든든하게 먹고 싶으면 시내로 나가 <b>엄지네포장마차</b>(꼬막비빔밥·육사시미) 원정도 좋아요. 오늘 많이 걸었으니 취향껏.</p>
+            <p>가볍게는 정동진 인근에서, 든든하게 먹고 싶으면 시내로 나가 <b>엄지네포장마차</b>(꼬막비빔밥·육사시미) 원정도 좋아요. 이른 저녁으로 여유롭게.</p>
           </div>
         </div>
       </div>
@@ -782,16 +772,22 @@
       </div>
 
       <div class="tl-item reveal">
-        <div class="tl-rail"><div class="tl-time">10:40</div></div>
+        <div class="tl-rail"><div class="tl-time">10:20</div></div>
         <div class="tl-body"><div class="tl-dot"></div>
           <div class="tl-card">
-            <div class="top"><span class="tag heal">택 1</span><h4>경포 인근 명소 하나</h4></div>
-            <p>취향에 따라 한 곳만 골라 여유롭게. 비 오거나 더우면 실내가 답이에요.</p>
-            <div class="meta-row">
-              <span><b>참소리축음기·에디슨과학박물관</b> 경포로 393</span>
-              <span><b>경포아쿠아리움</b> 성수기 10:00–20:00</span>
-              <span><b>선교장</b> 조선 사대부 고택</span>
-            </div>
+            <div class="top"><span class="tag heal">바다 · 포토</span><h4>강문해변</h4></div>
+            <p>경포 바로 옆, 강릉의 감성 포토존. 화이트톤 조형물과 푸른 바다가 어우러진 인생샷 스팟이에요. 모래 밟으며 둘이서 사진 남기기 딱 좋습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-rail"><div class="tl-time">10:50</div></div>
+        <div class="tl-body"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="top"><span class="tag heal">힐링</span><h4>안목해변 커피거리</h4></div>
+            <p>강릉을 '커피의 도시'로 만든 바닷가. <b>보헤미안 박이추커피</b>, <b>테라로사</b>에서 파도를 보며 아침 커피 한 잔. 강문·경포 바로 옆이라 자연스럽게 이어집니다.</p>
+            <div class="note">비 오거나 더운 날 실내가 당기면, 아래 '더 둘러볼 곳'의 경포아쿠아리움·참소리에디슨박물관·선교장으로 대체해도 좋아요.</div>
           </div>
         </div>
       </div>

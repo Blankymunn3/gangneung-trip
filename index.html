@@ -285,6 +285,16 @@
   /* Food grid */
   .food { background: linear-gradient(180deg, var(--bg-2), var(--bg)); }
   .more { background: linear-gradient(180deg, var(--bg), var(--bg-2)); }
+  .pack { background: linear-gradient(180deg, var(--bg-2), var(--bg)); }
+  .packgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 36px; }
+  .packcard { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+  .packcard:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .packcard h3 { display: flex; align-items: center; gap: 9px; margin: 0 0 14px; font-family: var(--font-display); font-size: 17.5px; font-weight: 700; }
+  .packcard h3 .pdot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: var(--accent); }
+  .packcard:nth-child(3n+2) h3 .pdot { background: var(--sea); }
+  .packcard:nth-child(3n) h3 .pdot { background: var(--gold); }
+  .packcard .checklist li { font-size: 14px; }
+  .packnote { margin-top: 22px; font-size: 13px; color: var(--ink-faint); }
   .foodcard .kmeta { margin-top: 12px; font-size: 12.5px; color: var(--ink-faint); border-top: 1px solid var(--line-soft); padding-top: 10px; display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .foodgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
   .foodcard {
@@ -455,7 +465,8 @@
     <a href="#project">우리 프로젝트</a>
     <a href="#food">먹방</a>
     <a href="#more">더보기</a>
-    <a href="#info">체크리스트</a>
+    <a href="#pack">준비물</a>
+    <a href="#info">팁</a>
   </div>
 </nav>
 
@@ -857,18 +868,18 @@
     <p class="eyebrow reveal">Eat List</p>
     <h2 class="sec reveal">강릉 먹방 지도</h2>
     <p class="lead reveal">이번 여행에서 챙긴 실제 맛집들. 웨이팅이 있는 곳이 많으니, 식사 시간보다 조금 이르게 움직이는 걸 추천합니다.</p>
-    <div class="ratenote reveal"><span class="pill">카카오맵 평점</span> 버튼을 누르면 각 식당의 <b>실시간 카카오맵 별점·후기</b>를 바로 볼 수 있어요. ★ 숫자 배지는 다이닝코드 공개 평점(2026.07 기준)이며, 확인 안 된 곳은 비워 뒀습니다.</div>
+    <div class="ratenote reveal"><span class="pill">카카오맵 평점</span> 버튼을 누르면 각 식당의 <b>실시간 카카오맵 별점·후기</b>를 바로 볼 수 있어요. ★ 숫자 배지는 다이닝코드 공개 평점(2026.07 기준)으로 <b>평점 높은 순 정렬</b>했고, 확인 안 된 곳은 비워 두고 뒤로 뒀습니다.</div>
 
     <div class="foodgrid">
+      <div class="foodcard reveal"><div class="cat">시장</div><h4>강릉중앙시장</h4><p>닭강정·꽈배기·오징어순대, 걸어 다니며 먹방.</p><div class="rating"><span class="star">★</span>4.8<span class="src">다이닝코드 · 중앙닭강정</span></div><div class="cardfoot"><span class="af">강릉 시내 전통시장</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=강릉중앙시장">카카오맵 평점</a></div></div>
       <div class="foodcard reveal"><div class="cat">순두부</div><h4>동화가든</h4><p>얼큰한 국물의 짬뽕순두부. 반찬 리필 인심도 넉넉.</p><div class="rating"><span class="star">★</span>4.5<span class="src">다이닝코드</span></div><div class="cardfoot"><span class="af">초당순두부마을 · 033-652-9885</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=강릉 동화가든 초당순두부">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">꼬막·회</div><h4>엄지네포장마차</h4><p>줄 서서 먹는 꼬막비빔밥과 육사시미.</p><div class="rating"><span class="star">★</span>4.5<span class="src">다이닝코드</span></div><div class="cardfoot"><span class="af">강릉시 포남동</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=엄지네포장마차 본점 강릉">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">회·해산물</div><h4>주문진 수산시장</h4><p>갓 잡은 오징어회·물회. 북쪽 30~40분(옵션).</p><div class="rating"><span class="star">★</span>4.5<span class="src">다이닝코드 · 해광횟집</span></div><div class="cardfoot"><span class="af">주문진항 회센터</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=주문진수산시장">카카오맵 평점</a></div></div>
+      <div class="foodcard reveal"><div class="cat">커피</div><h4>보헤미안 박이추커피</h4><p>1세대 바리스타의 핸드드립. 안목 바다 앞.</p><div class="rating"><span class="star">★</span>4.1<span class="src">다이닝코드</span></div><div class="cardfoot"><span class="af">안목해변 커피거리</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=보헤미안 박이추커피 본점">카카오맵 평점</a></div></div>
       <div class="foodcard reveal"><div class="cat">순두부</div><h4>초당할머니순두부</h4><p>부드러운 순두부백반과 얼큰째복순두부가 간판.</p><div class="cardfoot"><span class="af">초당순두부마을 · 033-652-2058</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=강릉 초당할머니순두부">카카오맵 평점</a></div></div>
       <div class="foodcard reveal"><div class="cat">디저트</div><h4>순두부젤라또</h4><p>고소한 순두부 젤라또, 초당의 인기 디저트.</p><div class="cardfoot"><span class="af">초당순두부길 95-5 · 09:20–19:30</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=강릉 순두부젤라또 초당">카카오맵 평점</a></div></div>
-      <div class="foodcard reveal"><div class="cat">커피</div><h4>보헤미안 박이추커피</h4><p>1세대 바리스타의 핸드드립. 안목 바다 앞.</p><div class="rating"><span class="star">★</span>4.1<span class="src">다이닝코드</span></div><div class="cardfoot"><span class="af">안목해변 커피거리</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=보헤미안 박이추커피 본점">카카오맵 평점</a></div></div>
       <div class="foodcard reveal"><div class="cat">커피</div><h4>테라로사</h4><p>강릉을 커피의 도시로 만든 로스터리.</p><div class="cardfoot"><span class="af">강릉 대표 카페</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=테라로사 커피 강릉">카카오맵 평점</a></div></div>
-      <div class="foodcard reveal"><div class="cat">꼬막·회</div><h4>엄지네포장마차</h4><p>줄 서서 먹는 꼬막비빔밥과 육사시미.</p><div class="rating"><span class="star">★</span>4.5<span class="src">다이닝코드</span></div><div class="cardfoot"><span class="af">강릉시 포남동</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=엄지네포장마차 본점 강릉">카카오맵 평점</a></div></div>
       <div class="foodcard reveal"><div class="cat">짬뽕</div><h4>교동반점</h4><p>강릉 짬뽕의 대명사. 월요일 휴무.</p><div class="cardfoot"><span class="af">강릉대로 205 · 10:00–18:00</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=원조강릉교동반점 본점">카카오맵 평점</a></div></div>
-      <div class="foodcard reveal"><div class="cat">시장</div><h4>강릉중앙시장</h4><p>닭강정·꽈배기·오징어순대, 걸어 다니며 먹방.</p><div class="rating"><span class="star">★</span>4.8<span class="src">다이닝코드 · 중앙닭강정</span></div><div class="cardfoot"><span class="af">강릉 시내 전통시장</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=강릉중앙시장">카카오맵 평점</a></div></div>
-      <div class="foodcard reveal"><div class="cat">회·해산물</div><h4>주문진 수산시장</h4><p>갓 잡은 오징어회·물회. 북쪽 30~40분(옵션).</p><div class="rating"><span class="star">★</span>4.5<span class="src">다이닝코드 · 해광횟집</span></div><div class="cardfoot"><span class="af">주문진항 회센터</span><a class="kakao-link" target="_blank" rel="noopener" href="https://map.kakao.com/?q=주문진수산시장">카카오맵 평점</a></div></div>
     </div>
   </div>
 </section>
@@ -893,11 +904,87 @@
   </div>
 </section>
 
+<!-- ===================== PACK (준비물) ===================== -->
+<section class="pack" id="pack">
+  <div class="wrap">
+    <p class="eyebrow reveal">Packing List</p>
+    <h2 class="sec reveal">짐 싸기 · 준비물 체크리스트</h2>
+    <p class="lead reveal">2박 3일, 자차(EV3), 한여름 바다 기준으로 꼼꼼하게 정리했어요. 카테고리별로 훑으며 하나씩 담으면 빠뜨릴 일이 없습니다.</p>
+
+    <div class="packgrid">
+      <div class="packcard reveal"><h3><span class="pdot"></span>서류 · 전자기기</h3><ul class="checklist">
+        <li><span class="mk">✓</span><span>신분증(운전면허증) · 지갑</span></li>
+        <li><span class="mk">✓</span><span>숙소·식당 예약 확인(캡처해두기)</span></li>
+        <li><span class="mk">✓</span><span>신용/체크카드 + 약간의 현금(시장용)</span></li>
+        <li><span class="mk">✓</span><span>휴대폰 충전기 · 보조배터리</span></li>
+        <li><span class="mk">✓</span><span>차 키(+여분 스마트키) · 이어폰</span></li>
+      </ul></div>
+
+      <div class="packcard reveal"><h3><span class="pdot"></span>의류 (2박 3일)</h3><ul class="checklist">
+        <li><span class="mk">✓</span><span>여름옷(반팔·반바지) 넉넉히</span></li>
+        <li><span class="mk">✓</span><span>얇은 겉옷·가디건(냉방·새벽 바람)</span></li>
+        <li><span class="mk">✓</span><span>잠옷 · 속옷 · 양말 여벌</span></li>
+        <li><span class="mk">✓</span><span>편한 운동화 + 샌들/슬리퍼</span></li>
+        <li><span class="mk">✓</span><span>모자 · 사진용 원피스/셔츠</span></li>
+      </ul></div>
+
+      <div class="packcard reveal"><h3><span class="pdot"></span>바다 · 물놀이</h3><ul class="checklist">
+        <li><span class="mk">✓</span><span>수영복 · 래시가드</span></li>
+        <li><span class="mk">✓</span><span>비치타월 · 여벌 수건</span></li>
+        <li><span class="mk">✓</span><span>아쿠아슈즈 · 방수 파우치</span></li>
+        <li><span class="mk">✓</span><span>젖은 옷 담을 지퍼백</span></li>
+        <li><span class="mk">✓</span><span>방수 자외선차단제</span></li>
+      </ul></div>
+
+      <div class="packcard reveal"><h3><span class="pdot"></span>세면 · 위생</h3><ul class="checklist">
+        <li><span class="mk">✓</span><span>칫솔 · 치약 · 클렌징</span></li>
+        <li><span class="mk">✓</span><span>기초화장품 · 립밤</span></li>
+        <li><span class="mk">✓</span><span>면도기 · 헤어브러시</span></li>
+        <li><span class="mk">✓</span><span>손소독제 · 물티슈</span></li>
+        <li><span class="mk">✓</span><span>개인 위생용품</span></li>
+      </ul></div>
+
+      <div class="packcard reveal"><h3><span class="pdot"></span>여름 필수템</h3><ul class="checklist">
+        <li><span class="mk">✓</span><span>자외선차단제 SPF50+</span></li>
+        <li><span class="mk">✓</span><span>선글라스 · 모자</span></li>
+        <li><span class="mk">✓</span><span>휴대용 선풍기 · 부채</span></li>
+        <li><span class="mk">✓</span><span>벌레기피제 · 모기 물린 데 바르는 약</span></li>
+        <li><span class="mk">✓</span><span>쿨토시 · 텀블러(수분 보충)</span></li>
+      </ul></div>
+
+      <div class="packcard reveal"><h3><span class="pdot"></span>상비약</h3><ul class="checklist">
+        <li><span class="mk">✓</span><span>소화제 · 지사제</span></li>
+        <li><span class="mk">✓</span><span>진통·해열제</span></li>
+        <li><span class="mk">✓</span><span>밴드 · 상처연고</span></li>
+        <li><span class="mk">✓</span><span>멀미약(구불구불 해안·산길 대비)</span></li>
+        <li><span class="mk">✓</span><span>알레르기약 · 개인 복용약</span></li>
+      </ul></div>
+
+      <div class="packcard reveal"><h3><span class="pdot"></span>EV3 · 차량</h3><ul class="checklist">
+        <li><span class="mk">✓</span><span>출발 전 완전 충전</span></li>
+        <li><span class="mk">✓</span><span>충전 앱·회원카드(여러 사업자)</span></li>
+        <li><span class="mk">✓</span><span>목적지 즐겨찾기 미리 저장</span></li>
+        <li><span class="mk">✓</span><span>차량용 충전기 · 햇빛가리개</span></li>
+        <li><span class="mk">✓</span><span>여름 주차는 그늘·실내 + 프리컨디셔닝</span></li>
+      </ul></div>
+
+      <div class="packcard reveal"><h3><span class="pdot"></span>우리 프로젝트 (선택)</h3><ul class="checklist">
+        <li><span class="mk">✓</span><span>평소 챙기던 영양제</span></li>
+        <li><span class="mk">✓</span><span>편안한 잠옷 · 입욕제(반신욕용)</span></li>
+        <li><span class="mk">✓</span><span>좋아하는 플레이리스트</span></li>
+        <li><span class="mk">✓</span><span>서두르지 않는 여유로운 마음</span></li>
+      </ul></div>
+    </div>
+
+    <p class="packnote reveal">※ 상비약·복용약은 평소 드시던 것 위주로 준비하세요. 건강 관련 내용은 일반적인 여행 준비 팁이며 의학적 조언은 아닙니다.</p>
+  </div>
+</section>
+
 <!-- ===================== INFO ===================== -->
 <section id="info">
   <div class="wrap">
-    <p class="eyebrow reveal">Before You Go</p>
-    <h2 class="sec reveal">떠나기 전, 체크리스트</h2>
+    <p class="eyebrow reveal">Good to Know</p>
+    <h2 class="sec reveal">떠나기 전, 알아둘 팁</h2>
 
     <div class="infogrid">
       <div class="infobox reveal">
@@ -911,12 +998,13 @@
       </div>
 
       <div class="infobox reveal">
-        <h3><span class="badge sea">☀</span>여름 여행 준비물</h3>
+        <h3><span class="badge sea">☀</span>여름·바다 꿀팁</h3>
         <ul class="checklist">
-          <li><span class="mk">✓</span><span><b>자외선 차단제·모자·선글라스</b> — 7월 말 동해 햇살은 강합니다.</span></li>
-          <li><span class="mk">✓</span><span><b>얇은 겉옷</b> — 새벽 일출·해안 바람 대비.</span></li>
-          <li><span class="mk">✓</span><span><b>편한 신발</b> — 바다부채길 3km, 경포호 산책용.</span></li>
-          <li><span class="mk">✓</span><span><b>물놀이 준비물</b>과 여벌 옷, 그리고 <b>일출 알람(≈ 05:00)</b>.</span></li>
+          <li><span class="mk">✓</span><span><b>일출은 대략 05:20</b> — 알람은 05:00에. 얇은 겉옷으로 새벽 바람 대비.</span></li>
+          <li><span class="mk">✓</span><span><b>한낮 자외선이 강해요</b> — 그늘·수분 보충, 차단제 2~3시간마다 덧바르기.</span></li>
+          <li><span class="mk">✓</span><span><b>인기 맛집은 조금 이르게</b> — 점심 웨이팅을 피하려면 11시대 도착.</span></li>
+          <li><span class="mk">✓</span><span><b>물놀이는 안전 깃발·구역 확인</b> — 이안류 주의, 무리하지 않기.</span></li>
+          <li><span class="mk">✓</span><span><b>주말·성수기 도로·주차 혼잡</b> — 이동 시간은 여유 있게 잡기.</span></li>
         </ul>
       </div>
     </div>
@@ -972,7 +1060,7 @@
   var links = Array.prototype.slice.call(document.querySelectorAll(".daynav a"));
   var map = {};
   links.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
-  var secs = ["overview", "day1", "day2", "day3", "project", "food", "more", "info"]
+  var secs = ["overview", "day1", "day2", "day3", "project", "food", "more", "pack", "info"]
     .map(function (id) { return document.getElementById(id); }).filter(Boolean);
   if ("IntersectionObserver" in window) {
     var navio = new IntersectionObserver(function (entries) {

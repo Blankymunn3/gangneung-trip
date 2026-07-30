@@ -88,7 +88,8 @@
   .no {
     background: rgba(255,255,255,.85); color: var(--ink-soft);
     box-shadow: 0 8px 18px -8px rgba(150,86,111,.5); border: 1px solid rgba(255,255,255,.9);
-    transform-origin: center; z-index: 5;
+    transform-origin: top left; z-index: 5;
+    white-space: nowrap; max-width: calc(100vw - 24px);
   }
 
   .counter { margin-top: 22px; height: 20px; font-family:"Gaegu",sans-serif; font-size: 15px; color: var(--ink-soft); opacity: .85; }
@@ -185,23 +186,38 @@
 
   function moveNo() {
     escapes++;
-    var pad = 14;
-    var w = no.offsetWidth, h = no.offsetHeight;
+    // 1) 문구·크기를 먼저 바꿔서 측정이 새 상태를 반영하게 한다
+    no.textContent = noTexts[Math.min(escapes, noTexts.length - 1)];
+    var s = Math.max(0.62, 1 - escapes * 0.04);
+    no.style.position = "fixed";
+    no.style.margin = "0";
+    no.style.transformOrigin = "top left";
+    no.style.transform = "scale(" + s + ")";
+    // 2) 실제 렌더 크기(스케일 포함)를 재서 항상 화면 '안'에만 두도록 클램프
+    var pad = 12;
+    var rect = no.getBoundingClientRect();
+    var w = rect.width, h = rect.height;
     var maxX = Math.max(pad, window.innerWidth - w - pad);
     var maxY = Math.max(pad, window.innerHeight - h - pad);
-    var x = pad + Math.random() * (maxX - pad);
-    var y = pad + Math.random() * (maxY - pad);
-    no.style.position = "fixed";
+    var x = Math.min(maxX, Math.max(pad, pad + Math.random() * (maxX - pad)));
+    var y = Math.min(maxY, Math.max(pad, pad + Math.random() * (maxY - pad)));
     no.style.left = x + "px";
     no.style.top = y + "px";
-    no.style.margin = "0";
-    no.textContent = noTexts[Math.min(escapes, noTexts.length - 1)];
-    var s = Math.max(0.55, 1 - escapes * 0.05);
-    no.style.transform = "scale(" + s + ")";
+    // 3) '사랑해'는 점점 커지고, 약올림 카운터
     var ys = Math.min(1.7, 1 + escapes * 0.05);
     yes.style.transform = "scale(" + ys + ")";
     counter.textContent = caught[Math.min(escapes, caught.length - 1)];
   }
+
+  // 창 크기/회전이 바뀌면 도망친 버튼을 다시 화면 안으로 당겨온다
+  window.addEventListener("resize", function () {
+    if (no.style.position !== "fixed") return;
+    var pad = 12, rect = no.getBoundingClientRect();
+    var maxX = Math.max(pad, window.innerWidth - rect.width - pad);
+    var maxY = Math.max(pad, window.innerHeight - rect.height - pad);
+    no.style.left = Math.min(maxX, Math.max(pad, parseFloat(no.style.left) || 0)) + "px";
+    no.style.top = Math.min(maxY, Math.max(pad, parseFloat(no.style.top) || 0)) + "px";
+  });
 
   // desktop: run away when the cursor gets close
   window.addEventListener("mousemove", function (e) {

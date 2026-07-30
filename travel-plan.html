@@ -1,4 +1,5 @@
 <title>강릉, 우리 둘의 사흘 — 2박 3일 여행 플랜</title>
+<meta name="color-scheme" content="light" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
@@ -29,41 +30,12 @@
     --font-display: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", -apple-system, BlinkMacSystemFont, system-ui, "Noto Sans KR", sans-serif;
     --maxw: 1080px;
   }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0E1513;
-      --bg-2: #0A110F;
-      --surface: #16201D;
-      --surface-2: #1D2925;
-      --ink: #E9E7E0;
-      --ink-soft: #A2ACA8;
-      --ink-faint: #6C7773;
-      --line: #273631;
-      --line-soft: #19221F;
-      --accent: #6BC2B6;
-      --accent-soft: #16302B;
-      --sea: #6BC2B6;
-      --sea-soft: #16302B;
-      --gold: #6BC2B6;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -22px rgba(0,0,0,.7);
-      --shadow-lg: 0 40px 90px -50px rgba(0,0,0,.85);
-    }
-  }
-  /* explicit theme toggles win over media query in both directions */
   :root[data-theme="light"] {
     --bg: #F6F5F1; --bg-2: #ECEBE5; --surface: #FFFFFF; --surface-2: #EFEEE8;
     --ink: #1B2320; --ink-soft: #565F5B; --ink-faint: #8B938E; --line: #E4E2DB; --line-soft: #EDECE5;
     --accent: #1E6F64; --accent-soft: #E3ECE9; --sea: #1E6F64; --sea-soft: #E3ECE9; --gold: #1E6F64;
     --shadow: 0 1px 2px rgba(23,37,44,.05), 0 12px 32px -18px rgba(23,37,44,.28);
     --shadow-lg: 0 30px 70px -40px rgba(23,37,44,.55);
-  }
-  :root[data-theme="dark"] {
-    --bg: #0E1513; --bg-2: #0A110F; --surface: #16201D; --surface-2: #1D2925;
-    --ink: #E9E7E0; --ink-soft: #A2ACA8; --ink-faint: #6C7773; --line: #273631; --line-soft: #19221F;
-    --accent: #6BC2B6; --accent-soft: #16302B; --sea: #6BC2B6; --sea-soft: #16302B; --gold: #6BC2B6;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -22px rgba(0,0,0,.7);
-    --shadow-lg: 0 40px 90px -50px rgba(0,0,0,.85);
   }
 
   * { box-sizing: border-box; }
@@ -484,7 +456,6 @@
   }
 </style>
 
-<button class="toggle" id="themeToggle" aria-label="라이트/다크 전환" title="라이트 / 다크 전환">◐</button>
 
 <!-- ===================== HERO ===================== -->
 <header class="hero">
@@ -1080,18 +1051,6 @@
 <script>
 (function () {
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* ---------- theme toggle ---------- */
-  var root = document.documentElement;
-  var btn = document.getElementById("themeToggle");
-  btn.addEventListener("click", function () {
-    var cur = root.getAttribute("data-theme");
-    if (!cur) {
-      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      cur = prefersDark ? "dark" : "light";
-    }
-    root.setAttribute("data-theme", cur === "dark" ? "light" : "dark");
-  });
 
   /* ---------- reveal on scroll ---------- */
   var revs = document.querySelectorAll(".reveal");

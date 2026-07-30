@@ -162,6 +162,7 @@
   var yes = document.getElementById("yes");
   var counter = document.getElementById("counter");
   var heartEmojis = ["❤️","💕","💖","💘","💗","🩷","😍","🥰","💞","💓"];
+  var noHome = no.parentNode, noNext = no.nextSibling;  // 리셋 시 제자리로 복원용
 
   /* ---------- ambient background hearts ---------- */
   (function bg() {
@@ -186,6 +187,9 @@
 
   function moveNo() {
     escapes++;
+    // 0) body 최상위로 옮긴다 — .card의 backdrop-filter가 fixed의 기준을 카드로 바꾸기 때문.
+    //    body 직속이어야 position:fixed가 '뷰포트' 기준이 되어 화면 밖으로 사라지지 않음.
+    if (no.parentNode !== document.body) document.body.appendChild(no);
     // 1) 문구·크기를 먼저 바꿔서 측정이 새 상태를 반영하게 한다
     no.textContent = noTexts[Math.min(escapes, noTexts.length - 1)];
     var s = Math.max(0.62, 1 - escapes * 0.04);
@@ -328,14 +332,16 @@
   document.getElementById("again").addEventListener("click", function () {
     win.classList.remove("show");
     if (heartTimer) { clearInterval(heartTimer); heartTimer = null; }
-    // reset the no button back into the card
+    // reset the no button back into the card (원위치로 복원)
     escapes = 0;
     no.style.position = "";
     no.style.left = no.style.top = no.style.margin = "";
     no.style.transform = "";
+    no.style.transformOrigin = "";
     no.textContent = "아니";
     yes.style.transform = "";
     counter.textContent = "";
+    if (no.parentNode !== noHome) noHome.insertBefore(no, noNext);
   });
 })();
 </script>
